@@ -16,7 +16,13 @@ namespace TrackerUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TournamentDashboardForm());
+
+            //Initialize which databse connections we are going to talk to
+            TrackerLibrary.GlobalConfig.InitializeConnections(true, true);
+
+            // Pick the first form that will be open
+            Application.Run(new CreatePrizeForm());
+            //Application.Run(new TournamentDashboardForm());
         }
     }
 }
